@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrower List</title>
+</head>
+<body>
+    <h1>Borrower List</h1>
+    <ul>
+        {% for borrower in borrowers %}
+            <li>{{ borrower.name }} ({{ borrower.email }})</li>
+            <ul>
+                {% for book in borrower.borrowed_books.all %}
+                    <li>{{ book.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+</body>
+</html>
